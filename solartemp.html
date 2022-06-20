@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 <!-- we import arjs version without NFT but with marker + location based support -->
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
-<body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-        <a-marker preset="hiro">
-            <a-entity position="0 0 0" scale="0.05 0.05 0.05" gltf-model="./models/Solarsystem/scene.gltf">
+<body>
+    <a-scene embedded arjs gesture-detector>
+        <a-marker preset='custom' type='pattern' url='./images/pattern-solarsystem.patt'>
+            <a-entity position="-15 -5 0" scale="0.002 0.002 0.002" gltf-model="./models/Solarsystem/scene.gltf"
+                class="clickable" gesture-handler="minScale: 0.25; maxScale: 10">
             </a-entity>
         </a-marker>
-        <a-entity camera></a-entity>
+        <a-entity camera wasd-controls></a-entity>
     </a-scene>
 </body>
 
